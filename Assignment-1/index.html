@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title> Check Your age </title>
+ 
+</head>
+
+<body>
+
+  
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+   <img src="./image/navbar-logo.png" class="navbar_logo"/>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+ 
+ 
+  <div class="container mt-5 mb-1 bg-sucess">
+    <div class="row">
+      
+      <div class="col-md-6 mb-4" id="adultCard">
+        <div class="card">
+          <img src="./image/adult_image.jpg" class="card-img-top image_formation" alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">You are an Adult</h5>
+            <p class="card-text ">Congratulations! You are 18 years or older.</p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 mb-4" id="childCard">
+        <div class="card">
+          <img src="./image/child_image.jpg" class="card-img-top image_formation " alt="Card Image">
+          <div class="card-body">
+            <h5 class="card-title">You are a Child</h5>
+            <p class="card-text ">Sorry, you are under 18 years old.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div class="col-md-12">
+        <b><label for="ageInput" class="bold text-black"> Enter Your Age below: </label> </b>
+        <input type="number" id="ageInput" class="form-control w-25"  placeholder="Age">
+        <p id="wrong_Info" class="text-danger"></p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="footer bg-dark p-3">
+    <p class="text-white align-self-center footerclass">&copy; All Right Reserved </p>
+  </div>
+
+  <script>
+    document.getElementById("ageInput").addEventListener("input", function () {
+      var age = parseInt(this.value);
+      var adultCard = document.getElementById("adultCard");
+      var childCard = document.getElementById("childCard");
+      var Valid_Num = document.getElementById("wrong_Info")
+
+      
+      if (age >= 18) {
+        adultCard.style.display = "block";
+        childCard.style.display = "none";
+        Valid_Num.style.display = "none";
+      } else if (age < 18 && age > 0){
+        adultCard.style.display = "none";
+        childCard.style.display = "block";
+        Valid_Num.style.display = "none";
+      }
+      else if (age <0) {
+        document.getElementById('wrong_Info').innerHTML="Please Give valid age Number ! "
+        Valid_Num.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
